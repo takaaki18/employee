@@ -5,7 +5,10 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import lombok.Data;
+
 // name属性はテーブル名
+@Data
 @Entity
 @Table(name = "employee")
 public class Employee {
@@ -22,28 +25,4 @@ public class Employee {
 	@Column
 	private Integer deptNo;
 
-	// Getter, Setter
-	public Integer getId() {
-		return id;
-	}
-
-	public void setId(Integer id) {
-		this.id = id;
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public Integer getDeptNo() {
-		return deptNo;
-	}
-
-	public void setDeptNo(Integer deptNo) {
-		this.deptNo = deptNo;
-	}
 }
