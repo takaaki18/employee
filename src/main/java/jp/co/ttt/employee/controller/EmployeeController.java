@@ -22,7 +22,7 @@ public class EmployeeController {
 		return "employee/employee_list";
 	}
 
-	// 主キー(従業員番号)で検索
+	// 主キー(従業員番号)検索
 	@RequestMapping(path = "/getOne/{id}")
 	public String showEmployee(@PathVariable int id, Model model) {
 
@@ -30,7 +30,7 @@ public class EmployeeController {
 		return "employee/employee_list";
 	}
 
-	// 部署番号で検索
+	// 部署番号検索を行う
 	@RequestMapping(path = "/findByDeptNo/{deptNo}")
 	public String showEmpoloyeeListByDeptNo(@PathVariable int deptNo, Model model) {
 
@@ -39,7 +39,7 @@ public class EmployeeController {
 		return "employee/employee_list";
 	}
 
-	// 名前＆部署番号で検索
+	// 従業員名＆部署番号検索を行う
 	@RequestMapping(path = "/findByNameAndDeptNo/{name}/{deptNo}")
 	public String showEmpoloyeeListByNameAndDeptNo(@PathVariable String name, @PathVariable int deptNo,
 			Model model) {
@@ -48,7 +48,7 @@ public class EmployeeController {
 		return "employee/employee_list";
 	}
 
-	// 名前の部分検索を行う
+	// 従業員名部分検索を行う
 	@RequestMapping(path = "/findByNameLike/{name}")
 	public String showEmployeeListNameLike(@PathVariable String name, Model model) {
 

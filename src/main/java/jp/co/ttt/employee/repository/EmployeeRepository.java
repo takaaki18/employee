@@ -6,7 +6,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import jp.co.ttt.employee.entity.Employee;
 
-public interface EmployeeRepository extends JpaRepository<Employee, Integer>{
+public interface EmployeeRepository extends JpaRepository<Employee, Integer> {
 
 	// 部署番号検索
 	List<Employee> findByDeptNo(Integer deptNo);
