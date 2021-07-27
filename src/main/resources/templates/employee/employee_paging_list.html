@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link th:href="@{/css/style.css}" rel="stylesheet">
+</head>
+<body>
+	<div>従業員一覧</div>
+	<table>
+		<tr>
+			<th>従業員番号</th>
+			<th>従業員名</th>
+			<th>部署番号</th>
+		</tr>
+		<tr th:each="employee:${employees}">
+			<td th:text="${employee.id}"></td>
+			<td th:text="${employee.name}"></td>
+			<td th:text="${employee.deptNo}"></td>
+		</tr>
+	</table>
+
+	<!-- ページリンク -->
+		<ul class="paging">
+			<li>
+				<span th:if="${pages.first}">&lt;&lt;</span>
+				<a th:if="${not pages.first}" th:href="@{${url}(page=0)}">&lt;&lt;</a>
+			</li>
+
+			<!-- 中間のページリンク -->
+			<li th:each="i:${#numbers.sequence(0, pages.totalPages-1)}">
+				<span th:if="${i}==${pages.number}" th:text="${i+1}"></span>
+				<a th:if="${i}!=${pages.number}" th:href="@{${url}(page=${i})}">
+					<span th:text="${i+1}"></span>
+				</a>
+			</li>
+
+			<!-- 末尾のページリンク -->
+			<li>
+				<span th:if="${pages.last}">&gt;&gt;</span>
+				<a th:if="${not pages.last}" th:href="@{${url}(page=(${pages.totalPages-1}))}">
+					&gt;&gt;
+				</a>
+			</li>
+
+		</ul>
+
+</body>
+</html>
